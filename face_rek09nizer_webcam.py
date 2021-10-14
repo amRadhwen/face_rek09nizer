@@ -27,8 +27,12 @@ while True:
 
     # display the resulting frame
     cv.imshow("frame", frame)
-    face_location = fr.face_locations(frame)
-    print(face_location)
+    
+    # convet frame from BGR used by openCV to RGB wich is used by face recognition
+    rgb_frame = frame[:, :, ::-1]
+    
+
+
     # define capture quit button (in this case it's the 'q' button)
     if cv.waitKey(0) == ord('q'):
         break
