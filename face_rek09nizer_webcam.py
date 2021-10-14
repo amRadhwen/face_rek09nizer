@@ -1,9 +1,19 @@
 # import opencv
-import cv2
+import cv as cv
+
+# import numpy
+import numpy as np
+
+# import facerecognition
+import face_recognition as fr
 
 # define vi capture object
 
-video = cv2.VideoCapture(0)
+video = cv.VideoCapture(0)
+
+if not video.isOpened():
+    print("Cannot open webcam !")
+    exit()
 
 # capture loop
 counter = 0
@@ -11,16 +21,20 @@ while True:
     # capture video frame by frame
     ret, frame = video.read()
 
-    # display the resulting frame
-    cv2.imshow("frame", frame)
+    if not ret:
+        print("Cannot receive frames, something is wrong !")
+        exit()
 
+    # display the resulting frame
+    cv.imshow("frame", frame)
+    face_location = fr.face_locations(frame)
     # define capture quit button (in this case it's the 'q' button)
-    if cv2.waitKey(0) == ord('q'):
+    if cv.waitKey(0) == ord('q'):
         break
 
     # define photo capture key (in this case
-    if cv2.waitKey(0) == ord('c'):
-        cv2.imwrite('rek09nizer'+str(counter)+".png", frame)
+    if cv.waitKey(0) == ord('c'):
+        cv.imwrite('rek09nizer'+str(counter)+".png", frame)
 
     counter += 1
 
@@ -28,4 +42,4 @@ while True:
 video.release()
 
 # destroy the window
-cv2.destroyAllWindows()
+cv.destroyAllWindows()
