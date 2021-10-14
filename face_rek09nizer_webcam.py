@@ -1,5 +1,5 @@
 # import opencv
-import cv as cv
+import cv2 as cv
 
 # import numpy
 import numpy as np
@@ -28,6 +28,7 @@ while True:
     # display the resulting frame
     cv.imshow("frame", frame)
     face_location = fr.face_locations(frame)
+    print(face_location)
     # define capture quit button (in this case it's the 'q' button)
     if cv.waitKey(0) == ord('q'):
         break
