@@ -3,7 +3,7 @@ import face_recognition as fr
 import cv2 as cv
 
 
-image_side = fr.load_image_file("side..jpg")
+image_side = fr.load_image_file("side.jpg")
 image_front = fr.load_image_file("front.jpeg")
 
 
