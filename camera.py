@@ -15,11 +15,11 @@ while True:
     cv2.imshow("frame", frame)
 
     # define capture quit button (in this case it's the 'q' button)
-    if cv2.waitKey(1) & 0XFF == ord('q'):
+    if cv2.waitKey(0) == ord('q'):
         break
 
     # define photo capture key (in this case
-    if cv2.waitKey(1) & 0XFF == ord('c'):
+    if cv2.waitKey(0) == ord('c'):
         cv2.imwrite('rek09nizer'+str(counter)+".png", frame)
 
     counter += 1
